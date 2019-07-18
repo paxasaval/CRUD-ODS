@@ -1,0 +1,240 @@
+<% include partials/_header %>
+<% include partials/_ODSoptions %>
+<div class="container-fluid">
+    <div class="row">
+        <!-- FORM -->
+        <!--
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/add" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="title" placeholder="Inserta un titulo" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="description" id="" cols="30" class="form-control" placeholder="Inserta una descripcion"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            -->
+        <!-- LIST-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table" id="table">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Año</th>
+                                        <th>Área</th>
+                                        <th>Titulacion</th>
+                                        <th>Nombre del Proyecto</th>
+                                        <th>Responsable del Proyecto</th>
+                                        <th>Alcance/Zonas</th>
+                                        <th>ODS</th>
+                                        <th>Objetivo General</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for(var i = 0; i < project.length; i++ ) { %>
+                                    <tr>
+                                        <td><%= i+1 %></td>
+                                        <td><%= project[i].año %></td>
+                                        <td><%= project[i].area %></td>
+                                        <td><%= project[i].titulaciones %></td>
+                                        <td><%= project[i].nombre %></td>
+                                        <td><%= project[i].responsable %></td>
+                                        <td><%= project[i].alcance %></td>
+                                        <td><%= project[i].ods %></td>
+                                        <td><%= project[i].objetivo_general %></td>
+                                        <td><a class="btn btn-outline-primary" data-toggle="modal"
+                                                href="#modal_<%= project[i]._id  %>"><i
+                                                    class="far fa-eye text-danger"></i></a>
+                                            <a class="btn btn-outline-primary" href="/edit/<%= project[i]._id  %>"><i
+                                                    class="far fa-edit text-danger"></i></a>
+                                        </td>
+                                        <div class="modal fade" id=modal_<%= project[i]._id %>>
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <div class="container-fluid">
+                                                            <h6 class="modal-title">Año: <%= project[i].año %></h6>
+                                                            <button type="button" class="close align-content-end"
+                                                                data-dismiss="modal" aria-label="Close">
+                                                                &times;
+                                                            </button>
+                                                            <div class="row">
+                                                                <!--AREA-->
+                                                                <div class="col-md-12">
+                                                                    <h5 class="text-center">Area:
+                                                                        <%= project[i].area%></h5>
+                                                                </div>
+                                                                <!--TITULACION-->
+                                                                <div class="col-md-12">
+                                                                    <h6 class="text-center">Titulacion:
+                                                                        <%= project[i].titulaciones%>
+                                                                    </h6>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <!--DETALLE DE LA EJECUACION-->
+                                                                    <!--DOCENTES PARTICIPANTES-->
+                                                                    <div class="col-md-4">
+                                                                        <p><b>Docentes Participantes:</b>
+                                                                            <%= project[i].participantes_docentes %></p>
+                                                                    </div>
+                                                                    <!--FECHA DE INICIO-->
+                                                                    <div class="col-md-4">
+                                                                        <p><b>Fecha de inicio:
+                                                                            </b><%= project[i].fecha_inicio%></p>
+                                                                    </div>
+                                                                    <!--MODALIDAD-->
+                                                                    <div class="col-md-4">
+                                                                        <p><b>Modalidad:</b> <%= project[i].modalidad %>
+                                                                        </p>
+                                                                    </div>
+                                                                    <!--ESTUDIANTES PARTICIPANTES-->
+                                                                    <div class="col-md-4">
+                                                                        <p><b>Estudiantes Participantes:</b>
+                                                                            <%= project[i].participantes_estudiantes %>
+                                                                        </p>
+                                                                    </div>
+                                                                    <!--FECHA DE FIN-->
+                                                                    <div class="col-md-4">
+                                                                        <p><b>Fecha de Fin:</b>
+                                                                            <%= project[i].fecha_fin %></p>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--CUERPO DEL MODAL-->
+                                                    <div class="modal-body">
+                                                        <div class="container-fluid">
+                                                            <!--TITULO BODY-->
+                                                            <div class="row">
+                                                                <!--NOMBRE DEL PROYECTO-->
+                                                                <div class="col-md-12">
+                                                                    <h5 class="text-justify"><%= project[i].nombre%>
+                                                                    </h5>
+                                                                    <footer class="blockquote-footer">Codigo <cite
+                                                                            title="Source Title"><%= project[i].codigo %></cite>
+                                                                    </footer>
+                                                                </div>
+                                                            </div>
+                                                            <!--BODY-->
+                                                            <!--LINEA Y PROGRAMA-->
+                                                            <div class="row">
+                                                                <!--LINEA DE INVESTIGACION-->
+                                                                <div class="col-md-6 bg-light">
+                                                                    <h6 class="text-center">LINEA DE INVESTIGACION</h6>
+                                                                    <p class="text-center">
+                                                                        <%= project[i].linea_investigacion %></p>
+                                                                </div>
+                                                                <!--PROGRAMA-->
+                                                                <div class="col-md-6 bg-light">
+                                                                    <h6 class="text-center">PROGRAMA</h6>
+                                                                    <p class="text-center"><%= project[i].programa %>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <!--DATOS DEL RESPONSABLE-->
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h6 class="text-left">RESPONSABLE</h6>
+                                                                    <p><%= project[i].responsable %></p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <!--CORREO-->
+                                                                <div class="col-md-4">
+                                                                    <p class="text-justify">Correo:
+                                                                        <%= project[i].correo %></p>
+                                                                </div>
+                                                                <!--TELEFONO-->
+                                                                <div class="col-md-4">
+                                                                    <p class="text-justify">Telefono:
+                                                                        <%= project[i].telefono %></p>
+                                                                </div>
+                                                                <!--CODIGO UTPLiD-->
+                                                                <div class="col-md-4">
+                                                                    <p class="text-justify">UTPLiD:
+                                                                        <%= project[i].utpl_id%></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <div class="col-md-4 mr-md-2">
+
+                                                            <h6 class="text-left">ALCANCE</h6>
+
+                                                            <p class="text-justify"><%= project[i].alcance %>
+                                                            </p>
+
+
+                                                            <h6 class="text-left">ODS</h6>
+
+
+                                                            <p class="text-justify"><%= project[i].ods %></p>
+
+
+                                                            <h6 class="text-left">Objetivo General</h6>
+
+                                                            <p class="text-justify">
+                                                                <%= project[i].objetivo_general %></p>
+
+                                                        </div>
+                                                        <div class="col-md-7 align-items-end">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h6 class="text-left">BENEFICIARIOS</h6>
+                                                                </div>
+
+                                                                <p class="text-justify">
+                                                                    <%= project[i].beneficiarios %></p>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h6 class="text-left">DESCRIPCION</h6>
+                                                                </div>
+
+                                                                <p class="text-justify">
+                                                                    <%= project[i].descripcion %></p>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h6 class="text-left">RESULTADOS</h6>
+                                                                </div>
+
+                                                                <p class="text-justify"><%= project[i].resultados %>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                        </div>
+                        </tr>
+                        <% } %>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---->
+
+
+</div>
+
+<% include partials/_footer %>

@@ -1,17 +1,25 @@
+require('../config/config')
 const path = require('path');
 const express = require('express');
+const bodyParser = require('body-parser');
 const server = express();
 const morgan = require('morgan');
+const cors = require('cors');
 const mongoose = require('mongoose');
 
+
+//
+server.use(cors());
+server.use(bodyParser.urlencoded({
+    extended: false
+}));
+server.use(bodyParser.json());
+server.use(require('./routes/index'));
+server.use(morgan('dev'));
+server.use(express.urlencoded({extended: false}));
+
+
 //cobecting to db
-let urlDB;
-if (process.env.NODE_ENV == 'dev') {
-    urlDB = 'mongodb://localhost:27017/ods-crud';
-} else {
-    urlDB = process.env.MONGO_URI;
-}
-process.env.URLDB = urlDB
 
 mongoose.connect('mongodb://localhost:27017/ods-crud', {
     useNewUrlParser: true
@@ -29,8 +37,7 @@ server.set('views', path.join(__dirname,'views'));
 server.set('view engine', 'ejs')
 
 //midlaware
-server.use(morgan('dev'));
-server.use(express.urlencoded({extended: false}));
+
 
 
 // routes

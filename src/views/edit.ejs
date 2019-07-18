@@ -1,0 +1,149 @@
+<% include partials/_header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/update/<%= project._id %>" method="POST">
+                        <!--AÑO-->
+                        <div class="form-group">
+                            <input type="text" name="año" id="" class="form-control" placeholder="Inserte el Año"
+                                aria-describedby="helpId" value="<%= project.año %>">
+                        </div>
+                        <br>
+                        <!--ÁREA-->
+                        <div class="form-group">
+                            <input type="text" name="area" id="" class="form-control" placeholder="Inserte el Área"
+                                aria-describedby="helpId"value="<%= project.area %>">
+                        </div>
+                        <br>
+                        <!--TITULACIONES-->
+                        <div class="form-group">
+                            <input type="text" name="titulaciones" id="" class="form-control"
+                                placeholder="Inserte la Titulacion" aria-describedby="helpId" value="<%= project.titulaciones %>">
+                        </div>
+                        <br>
+                        <!--PARTICIPANTES DOCENTES-->
+                        <div class="form-group">
+                            <input type="text" name="participantes_docentes" id="" class="form-control"
+                                placeholder="Inserte numero de participantes docentes" aria-describedby="helpId" value="<%= project.participantes_docentes %>">
+                        </div>
+                        <br>
+                        <!--PARTICIPANTES ESTUDIANTES-->
+                        <div class="form-group">
+                            <input type="text" name="participantes_estudiantes" id="" class="form-control"
+                                placeholder="Inserte el numero de participantes estudiante" aria-describedby="helpId" value="<%= project.participantes_estudiantes %>">
+                        </div>
+                        <br>
+                        <!--MODALIDAD-->
+                        <div class="form-group">
+                            <input type="text" name="modalidad" id="" class="form-control"
+                                placeholder="Inserte la modalidad" aria-describedby="helpId" value="<%= project.modalidad %>" >
+                        </div>
+                        <br>
+                        <!--FECHA INICIO-->
+                        <div class="form-group">
+                            <input type="text" name="fecha_inicio" id="" class="form-control"
+                                placeholder="Inserte la fecha de inicio" aria-describedby="helpId" value="<%= project.fecha_inicio %>">
+                        </div>
+                        <br>
+                        <!--FECHA FIN-->
+                        <div class="form-group">
+                            <input type="text" name="fecha_fin" id="" class="form-control"
+                                placeholder="Inserte la fecha de fin" aria-describedby="helpId" value="<%= project.fecha_fin %>" >
+                        </div>
+                        <br>
+                        <!--NOMBRE DEL PROYECTO-->
+                        <div class="form-group">
+                            <input type="text" name="nombre" id="" class="form-control"
+                                placeholder="Inserte el nombre del Proyecto" aria-describedby="helpId" value="<%= project.nombre %>">
+                        </div>
+                        <br>
+                        <!--CODIGO-->
+                        <div class="form-group">
+                            <input type="text" name="codigo" id="" class="form-control" placeholder="Inserte el Codigo"
+                                aria-describedby="helpId" value="<%= project.codigo %>">
+                        </div>
+                        <br>
+                        <!--LINEA DE INVESTIGACION-->
+                        <div class="form-group">
+                            <input type="text" name="linea_investigacion" id="" class="form-control"
+                                placeholder="Inserte la línea de investigación" aria-describedby="helpId" value="<%= project.linea_investigacion %>">
+                        </div>
+                        <br>
+                        <!--PROGRAMA-->
+                        <div class="form-group">
+                            <input type="text" name="programa" id="" class="form-control"
+                                placeholder="Inserte el Programa" aria-describedby="helpId" value="<%= project.programa %>">
+                        </div>
+                        <br>
+                        <!--RESPONSABLE DEL PROYECTO-->
+                        <div class="form-group">
+                            <input type="text" name="responsable" id="" class="form-control"
+                                placeholder="Inserte el Responsable del Proyecto" aria-describedby="helpId" value="<%= project.responsable %>">
+                        </div>
+                        <br>
+                        <!--CORREO-->
+                        <div class="form-group">
+                            <input type="text" name="correo" id="" class="form-control" placeholder="Inserte el correo"
+                                aria-describedby="helpId" value="<%= project.correo %>">
+                        </div>
+                        <br>
+                        <!--TELEFONO-->
+                        <div class="form-group">
+                            <input type="text" name="telefono" id="" class="form-control"
+                                placeholder="Inserte el numero de teléfono" aria-describedby="helpId" value="<%= project.telefono %>">
+                        </div>
+                        <br>
+                        <!--UTPLiD-->
+                        <div class="form-group">
+                            <input type="text" name="utpl_id" id="" class="form-control"
+                                placeholder="Inserte el codigo UTPLid" aria-describedby="helpId" value="<%= project.utpl_id %>">
+                        </div>
+                        <br>
+                        <!--ALCANCE/ZONAS-->
+                        <div class="form-group">
+                            <input type="text" name="alcance" id="" class="form-control"
+                                placeholder="Inserte el Alcance o Zonas" aria-describedby="helpId" value="<%= project.alcance %>">
+                        </div>
+                        <br>
+                        <!--BENEFICIARIOS-->
+                        <div class="form-group">
+                            <input type="text" name="beneficiarios" id="" class="form-control"
+                                placeholder="Inserte los Beneficiarios" aria-describedby="helpId" value="<%= project.beneficiarios %>">
+                        </div>
+                        <br>
+                        <!--ODS-->
+                        <div class="form-group">
+                            <input type="text" name="ods" id="" class="form-control"
+                                placeholder="Inserte el Objetivo de Desarrollo Sostenible" aria-describedby="helpId" value="<%= project.ods %>">
+                        </div>
+                        <br>
+                        <!--OBJETIVO GENERAL-->
+                        <div class="form-group">
+                            <textarea type="text" name="objetivo_general" id="" class="form-control"
+                                placeholder="Inserte el Objetivo General" aria-describedby="helpId" value="<%= project.objetivo_general %>"></textarea>
+                        </div>
+                        <br>
+                        <!--DESCRIPCION-->
+                        <div class="form-group">
+                            <textarea type="text" name="descripcion" id="" class="form-control"
+                                placeholder="Inserte la descripcion o el impacto del Proyecto"
+                                aria-describedby="helpId" value="<%= project.descripcion %>"></textarea>
+                        </div>
+                        <br>
+                        <!--RESULTADOS-->
+                        <div class="form-group">
+                            <textarea type="text" name="resultados" id="" class="form-control"
+                                placeholder="Inserte los resultados del proyecto" aria-describedby="helpId" value="<%= project.resultados %>"></textarea>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% include partials/_footer %>
