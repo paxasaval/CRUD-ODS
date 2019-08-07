@@ -1,0 +1,5 @@
+Nota .... para la ejecion de este proyecto se requiere tener instalados los modulos de NODE.JS
+Recmondacion... Trabajar en un sistema Linux o implementar las herramientas necesarias para trabajar en Windows
+
+1. Abrimos una consola en la ubicacion del proyecto
+2. Ejecutamos el comando ¨npm run dev¨

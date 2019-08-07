@@ -16,12 +16,13 @@ server.use(bodyParser.urlencoded({
 server.use(bodyParser.json());
 server.use(require('./routes/index'));
 server.use(morgan('dev'));
+
 server.use(express.urlencoded({extended: false}));
 
 
 //cobecting to db
 
-mongoose.connect('mongodb://localhost:27017/ods-crud', {
+mongoose.connect('mongodb://localhost:27017/crud-ods', {
     useNewUrlParser: true
 }, (err, res) => {
     if (err) throw error;
@@ -37,7 +38,7 @@ server.set('views', path.join(__dirname,'views'));
 server.set('view engine', 'ejs')
 
 //midlaware
-
+server.use('/static', express.static(__dirname + '/public'));
 
 
 // routes

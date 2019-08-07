@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+    const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
 let Schema = mongoose.Schema;
@@ -29,11 +29,11 @@ let projectSchema = new  Schema({
         required: [false, 'La modalidad no es requerida']
     },
     fecha_inicio: {
-        type: Date,
+        type: String,
         required: [false, 'La fecha de inicio es requerida']
     },
     fecha_fin: {
-        type: Date,
+        type: String,
         required: [false, 'La fecha de fin no es requerida']
     },
     nombre: {

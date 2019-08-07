@@ -8,9 +8,11 @@ router.get('/card/:id', async (req, res) => {
 });
 
 router.get('/ods1', async (req, res) => {
+    
     let project = await Project.find({
         ods: 'Fin de la Pobreza'
     });
+
     console.log(project)
     res.render('index', {
         project: project
